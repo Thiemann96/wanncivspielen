@@ -1,10 +1,12 @@
 import { createClient } from '@supabase/supabase-js'
 
-const url = import.meta.env.VITE_SUPABASE_URL as string | undefined
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
+// trim(): Beim Einfügen in GitHub-Secrets rutscht gern ein Zeilenumbruch mit hinein
+const env = (v: unknown) => (typeof v === 'string' && v.trim()) || undefined
 
-export const SHARED_EMAIL =
-  (import.meta.env.VITE_SHARED_EMAIL as string | undefined) ?? 'civ@wanncivspielen.local'
+const url = env(import.meta.env.VITE_SUPABASE_URL)
+const anonKey = env(import.meta.env.VITE_SUPABASE_ANON_KEY)
+
+export const SHARED_EMAIL = env(import.meta.env.VITE_SHARED_EMAIL) ?? 'civ@wannspielen.local'
 
 export const isConfigured = Boolean(url && anonKey)
 

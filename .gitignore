@@ -1,0 +1,22 @@
+# Abhängigkeiten & Build
+node_modules
+dist
+tsconfig.tsbuildinfo
+*.log
+
+# Umgebungsvariablen (Supabase-Werte), nur die Vorlage kommt ins Repo
+.env
+.env.*
+!.env.example
+
+# System & Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Persönliches: Fotos und Startdaten bleiben lokal
+# (online liegen die Fotos im privaten Supabase-Bucket „heads“)
+public/heads/*
+!public/heads/.gitkeep
+assets/heads-original/
+supabase/*.local.sql
